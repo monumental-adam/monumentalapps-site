@@ -39,7 +39,11 @@
     .hamburger {
       display: none;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
+      width: 30px;
+      height: 30px;
     }
 
     .hamburger span {
@@ -48,6 +52,19 @@
       background: #005fa3;
       margin: 4px 0;
       border-radius: 2px;
+      transition: 0.4s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
     }
 
     nav {
@@ -173,7 +190,7 @@
   <div id="sticky-header">
     <header>
       <h1>Monumental Apps</h1>
-      <div class="hamburger" onclick="toggleMenu()">
+      <div class="hamburger" onclick="toggleMenu(this)">
         <span></span>
         <span></span>
         <span></span>
@@ -182,11 +199,11 @@
 
     <nav>
       <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#app">Upcoming App</a>
-        <a href="#support">Support</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <a href="#about" onclick="collapseMenu()">About</a>
+        <a href="#app" onclick="collapseMenu()">Upcoming App</a>
+        <a href="#support" onclick="collapseMenu()">Support</a>
+        <a href="privacy.html" onclick="collapseMenu()">Privacy</a>
+        <a href="terms.html" onclick="collapseMenu()">Terms</a>
       </div>
     </nav>
   </div>
@@ -223,9 +240,19 @@
   </footer>
 
   <script>
-    function toggleMenu() {
+    function toggleMenu(el) {
       const nav = document.getElementById("navLinks");
+      el.classList.toggle("active");
       nav.classList.toggle("show");
+    }
+
+    function collapseMenu() {
+      const hamburger = document.querySelector('.hamburger');
+      const nav = document.getElementById("navLinks");
+      if (hamburger.classList.contains("active")) {
+        hamburger.classList.remove("active");
+        nav.classList.remove("show");
+      }
     }
   </script>
 </body>
