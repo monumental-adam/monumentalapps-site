@@ -32,10 +32,18 @@
     }
 
     header {
-      background-color: #005fa3;
-      color: white;
-      padding: 1.5em 1em;
-      text-align: center;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      padding: 1em 2em;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header h1 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.8em;
+      color: #005fa3;
+      margin: 0;
     }
 
     nav {
@@ -83,14 +91,67 @@
     h2 {
       color: #005fa3;
     }
+
+    #logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2em 0;
+    }
+
+    #logo img {
+      height: auto;
+      width: 800px;
+      max-width: 100%;
+      margin-bottom: 0.5em;
+    }
+
+    #logo p {
+      font-size: 1.5em;
+      color: #444;
+      text-align: center;
+      margin: 0;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1em;
+      }
+
+      header h1 {
+        font-size: 1.4em;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5em 0;
+      }
+
+      section {
+        margin: 1em;
+        padding: 1em;
+      }
+
+      #logo img {
+        width: 90% !important;
+        max-width: 100%;
+      }
+
+      #logo p {
+        font-size: 1.2em;
+        padding: 0 1em;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <header style="display: flex; align-items: center; background-color: #ffffff; padding: 1em 2em; border-bottom: 1px solid #ddd;">
-    <h1 style="font-family: 'Open Sans', sans-serif; font-size: 1.8em; color: #005fa3; margin: 0;">
-      Monumental Apps
-    </h1>
+  <header>
+    <h1>Monumental Apps</h1>
   </header>
 
   <nav>
@@ -101,13 +162,11 @@
     <a href="terms.html">Terms</a>
   </nav>
 
-<section id="logo" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2em 0;">
-  <img src="images/monumental-logo.png" alt="Monumental Apps Logo" style="height: auto; width: 800px; max-width: 100%; margin: 0 0 0.5em 0;" />
-  <p style="font-size: 1.5em; color: #444; text-align: center; margin: 0;"><br>
-    Monumental Apps for Meaningful Work
-  </p>
-</section>
-  
+  <section id="logo">
+    <img src="images/monumental-logo.png" alt="Monumental Apps Logo" />
+    <p><br>Monumental Apps for Meaningful Work</p>
+  </section>
+
   <section id="about">
     <h2>About Us</h2>
     <p><strong>Monumental Apps, LLC</strong> is a software company dedicated to building mobile applications that simplify real-world tasks. Founded in 2025, our mission is to make professional-grade tools accessible, efficient, and beautifully designed.</p>
