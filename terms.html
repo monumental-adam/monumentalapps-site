@@ -4,35 +4,214 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terms of Use | Monumental Apps</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f7fa;
+      color: #333;
+    }
+
+    #sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    header {
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1em 2em;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header h1 {
+      font-size: 1.8em;
+      color: #005fa3;
+      margin: 0;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #005fa3;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    nav {
+      background-color: #00497d;
+      text-align: center;
+      padding: 1em 0;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1em;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 1em;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      margin: 3em 0 1em;
+      color: #666;
+    }
+
+    footer a {
+      color: #005fa3;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      nav a {
+        margin: 1em 0;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Terms of Use</h1>
-  <p>Effective Date: May 20, 2025</p>
+  <div id="sticky-header">
+    <header>
+      <h1>Monumental Apps</h1>
+      <div class="hamburger" onclick="toggleMenu(this)">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+    <nav>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#logo" onclick="collapseMenu()">Home</a>
+        <a href="index.html#about" onclick="collapseMenu()">About</a>
+        <a href="index.html#app" onclick="collapseMenu()">Upcoming App</a>
+        <a href="index.html#support" onclick="collapseMenu()">Support</a>
+        <a href="privacy.html" onclick="collapseMenu()">Privacy</a>
+        <a href="terms.html" onclick="collapseMenu()">Terms</a>
+      </div>
+    </nav>
+  </div>
 
-  <p>Welcome to Monumental Apps, LLC ("we", "our", or "us"). By accessing or using our website and mobile applications ("Services"), you agree to the following Terms of Use. If you do not agree, please do not use our Services.</p>
+  <div class="container">
+    <h2>Terms of Use</h2>
+    <p><strong>Effective Date:</strong> May 20, 2025</p>
 
-  <h2>1. Use of Services</h2>
-  <p>You may use our Services only for lawful purposes and in accordance with these Terms. You agree not to:</p>
-  <ul>
-    <li>Violate any applicable laws or regulations</li>
-    <li>Use the Services for any unauthorized or harmful purpose</li>
-    <li>Attempt to gain unauthorized access to our systems</li>
-  </ul>
+    <p>Welcome to Monumental Apps, LLC ("we", "our", or "us"). By accessing or using our website and mobile applications ("Services"), you agree to the following Terms of Use. If you do not agree, please do not use our Services.</p>
 
-  <h2>2. Intellectual Property</h2>
-  <p>All content, features, and functionality of our Services—including text, graphics, logos, and software—are the property of Monumental Apps, LLC or its licensors and are protected by copyright, trademark, and other laws.</p>
+    <h3>1. Use of Services</h3>
+    <p>You may use our Services only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+    <ul>
+      <li>Violate any applicable laws or regulations</li>
+      <li>Use the Services for any unauthorized or harmful purpose</li>
+      <li>Attempt to gain unauthorized access to our systems</li>
+    </ul>
 
-  <h2>3. Disclaimer of Warranties</h2>
-  <p>Our Services are provided "as is" and "as available" without warranties of any kind. We do not guarantee that the Services will be error-free, uninterrupted, or meet your specific requirements.</p>
+    <h3>2. Intellectual Property</h3>
+    <p>All content, features, and functionality of our Services—including text, graphics, logos, and software—are the property of Monumental Apps, LLC or its licensors and are protected by copyright, trademark, and other laws.</p>
 
-  <h2>4. Limitation of Liability</h2>
-  <p>To the maximum extent permitted by law, Monumental Apps, LLC shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of or inability to use the Services.</p>
+    <h3>3. Disclaimer of Warranties</h3>
+    <p>Our Services are provided "as is" and "as available" without warranties of any kind. We do not guarantee that the Services will be error-free, uninterrupted, or meet your specific requirements.</p>
 
-  <h2>5. Changes to These Terms</h2>
-  <p>We may update these Terms from time to time. The revised version will be posted on this page with an updated effective date. Continued use of the Services after changes constitutes your acceptance of the new Terms.</p>
+    <h3>4. Limitation of Liability</h3>
+    <p>To the maximum extent permitted by law, Monumental Apps, LLC shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of or inability to use the Services.</p>
 
-  <h2>6. Contact Us</h2>
-  <p>If you have any questions about these Terms, please contact us at:
-  <a href="mailto:support@monumentalapps.com">support@monumentalapps.com</a></p>
+    <h3>5. Changes to These Terms</h3>
+    <p>We may update these Terms from time to time. The revised version will be posted on this page with an updated effective date. Continued use of the Services after changes constitutes your acceptance of the new Terms.</p>
+
+    <h3>6. Contact Us</h3>
+    <p>If you have any questions about these Terms, please contact us at:
+      <a href="mailto:support@monumentalapps.com">support@monumentalapps.com</a></p>
+  </div>
+
+  <footer>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="terms.html">Terms of Use</a> &nbsp;|&nbsp;
+      <a href="mailto:support@monumentalapps.com">Contact Us</a>
+    </p>
+    <p>&copy; 2025 Monumental Apps, LLC. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu(el) {
+      const nav = document.getElementById("navLinks");
+      el.classList.toggle("active");
+      nav.classList.toggle("show");
+    }
+
+    function collapseMenu() {
+      const hamburger = document.querySelector('.hamburger');
+      const nav = document.getElementById("navLinks");
+      if (hamburger.classList.contains("active")) {
+        hamburger.classList.remove("active");
+        nav.classList.remove("show");
+      }
+    }
+  </script>
 </body>
 </html>
