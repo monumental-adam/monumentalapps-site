@@ -5,24 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Monumental Apps</title>
 
-  <!-- SEO Meta Tags -->
-  <meta name="title" content="Monumental Apps – Meaningful Work, Made Simple">
-  <meta name="description" content="Monumental Apps builds thoughtful, intuitive mobile tools designed to support meaningful work. Coming soon: BizCard Keeper.">
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.monumentalapps.com">
-  <meta property="og:title" content="Monumental Apps – Meaningful Work, Made Simple">
-  <meta property="og:description" content="Coming soon: BizCard Keeper – an intelligent business card scanning and organization app.">
-  <meta property="og:image" content="https://www.monumentalapps.com/images/monumental-logo.png">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Monumental Apps – Meaningful Work, Made Simple">
-  <meta name="twitter:description" content="Coming soon: BizCard Keeper – an intelligent business card scanning and organization app.">
-  <meta name="twitter:image" content="https://www.monumentalapps.com/images/monumental-logo.png">
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -43,20 +25,33 @@
       background-color: #ffffff;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 1em 2em;
       border-bottom: 1px solid #ddd;
     }
 
     #sticky-header header h1 {
-      font-family: 'Open Sans', sans-serif;
       font-size: 1.8em;
       color: #005fa3;
       margin: 0;
     }
 
-    #sticky-header nav {
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #005fa3;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    nav {
       background-color: #00497d;
-      padding: 0.5em;
       text-align: center;
     }
 
@@ -65,10 +60,22 @@
       margin: 0 1em;
       text-decoration: none;
       font-weight: bold;
+      display: inline-block;
     }
 
     nav a:hover {
       text-decoration: underline;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-hidden {
+      display: none;
+      flex-direction: column;
     }
 
     section {
@@ -122,21 +129,28 @@
       margin: 0;
     }
 
-    /* Responsive Adjustments */
     @media (max-width: 600px) {
       #sticky-header header {
-        flex-direction: column;
-        text-align: center;
-        padding: 1em;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
       }
 
-      #sticky-header header h1 {
-        font-size: 1.4em;
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+      }
+
+      .nav-links.show {
+        display: flex;
       }
 
       nav a {
-        display: block;
-        margin: 0.5em 0;
+        margin: 1em 0;
       }
 
       section {
@@ -146,7 +160,6 @@
 
       #logo img {
         width: 90% !important;
-        max-width: 100%;
       }
 
       #logo p {
@@ -157,18 +170,24 @@
   </style>
 </head>
 <body>
-
   <div id="sticky-header">
     <header>
       <h1>Monumental Apps</h1>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </header>
 
     <nav>
-      <a href="#about">About</a>
-      <a href="#app">Upcoming App</a>
-      <a href="#support">Support</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#app">Upcoming App</a>
+        <a href="#support">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
     </nav>
   </div>
 
@@ -179,7 +198,7 @@
 
   <section id="about">
     <h2>About Us</h2>
-    <p><strong>Monumental Apps, LLC</strong> is a software company dedicated to building mobile applications that simplify real-world tasks. Founded in 2025, our mission is to make professional-grade tools accessible, efficient, and beautifully designed.</p>
+    <p><strong>Monumental Apps, LLC</strong> builds mobile apps that simplify real-world tasks. Founded in 2025, our mission is to make professional-grade tools accessible, efficient, and beautifully designed.</p>
   </section>
 
   <section id="app">
@@ -203,5 +222,11 @@
     <p>&copy; 2025 Monumental Apps, LLC. All rights reserved.</p>
   </footer>
 
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
