@@ -13,7 +13,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background-color: #f4f7fa;
+      background-color: #ffffff;
       color: #333;
     }
 
@@ -109,9 +109,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    #logo {
-      scroll-margin-top: 150px;
-    }
+    
 
     #about {
       scroll-margin-top: 150px;
@@ -137,20 +135,15 @@
       color: #005fa3;
     }
 
-    #logo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2em 0;
-    }
-
     #logo img {
-      height: auto;
-      width: 800px;
-      max-width: 100%;
-      margin-bottom: 0.5em;
-    }
+  height: auto;
+  width: 800px;
+  max-width: 100%;
+  margin-bottom: 0.5em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
     .slogan {
       color: #005fa3;
@@ -160,7 +153,43 @@
       text-align: center;
     }
 
+    #screenshots {
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 1em;
+  text-align: center;
+}
+
+    #screenshots h2 {
+      color: #005fa3;
+      margin-bottom: 1em;
+    }
+
+    .screenshot-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      justify-content: center;
+    }
+
+    .screenshot-grid img {
+      width: 180px;
+      
+      box-shadow: none;
+    }
+
     @media (max-width: 600px) {
+  .slogan {
+    font-size: 1em;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+    margin-left: 1em;
+    margin-right: 1em;
+    text-align: center;
+  }
+  .slogan {
+    font-size: 1.2em;
+  }
       #sticky-header header {
         flex-direction: row;
         justify-content: space-between;
@@ -198,8 +227,53 @@
         letter-spacing: -0.3px;
         line-height: 1.2;
       }
+
+      .screenshot-grid img {
+        width: 100%;
+        max-width: 300px;
+      }
     }
-  </style>
+  .screenshot-carousel {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #ffffff;
+  border-radius: 0;
+}
+
+.screenshot-carousel img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  box-shadow: none !important;
+  filter: none !important;
+  outline: none !important;
+  border: none !important;
+  background-color: #ffffff !important;
+}
+
+.carousel-indicators {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #005fa3;
+}
+
+</style>
 </head>
 <body>
   <div id="sticky-header">
@@ -224,9 +298,9 @@
     </nav>
   </div>
 
-  <section id="logo">
+  <section id="logo" class="section">
     <img src="images/monumental-logo.png" alt="Monumental Apps Logo" />
-    <p class="slogan">Monumental Apps for Meaningful Work</p>
+    <p class="slogan" style="font-size: clamp(1em, 4vw, 1.5em);">Monumental Apps for Meaningful Work</p>
   </section>
 
   <section id="about">
@@ -238,6 +312,20 @@
     <h2>Coming Soon: BizCard Keeper</h2>
     <p><strong>BizCard Keeper</strong> is our upcoming app for business professionals who need to scan, organize, and share business cards on the go. It uses intelligent sorting and comparison tools, allowing you to track your own card, manage contacts, and stay organized effortlessly.</p>
     <p>Available soon on the App Store!</p>
+  </section>
+
+  <section id="screenshots">
+    <h2>BizCard Keeper in Action</h2>
+    <div class="screenshot-carousel">
+  <img id="carousel-image" src="images/deck-single.png" alt="BizCard screenshot">
+  <div class="carousel-indicators">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</div>
   </section>
 
   <section id="support">
@@ -270,6 +358,52 @@
         nav.classList.remove("show");
       }
     }
-  </script>
+    const carouselImages = [
+    'images/deck-single.png',
+    'images/deck-multi.png',
+    'images/darkmode.png',
+    'images/list.png',
+    'images/details.png'
+  ];
+
+  let currentIndex = 0;
+  const carousel = document.getElementById("carousel-image");
+
+  let interval = setInterval(() => {
+  currentIndex = (currentIndex + 1) % carouselImages.length;
+  carousel.src = carouselImages[currentIndex];
+  updateDots();
+}, 4000);
+
+carousel.addEventListener('mouseenter', () => clearInterval(interval));
+carousel.addEventListener('mouseleave', () => {
+  interval = setInterval(() => {
+    currentIndex = (currentIndex + 1) % carouselImages.length;
+    carousel.src = carouselImages[currentIndex];
+    updateDots();
+  }, 4000);
+}); // change image every 3 seconds
+
+  function updateDots() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === currentIndex);
+    });
+  }
+  function updateDots() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === currentIndex);
+    });
+  }
+
+  document.querySelectorAll('.dot').forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentIndex = index;
+      carousel.src = carouselImages[currentIndex];
+      updateDots();
+    });
+  });
+</script>
 </body>
 </html>
