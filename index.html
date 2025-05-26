@@ -161,11 +161,11 @@
     }
 
     #screenshots {
-      max-width: 900px;
-      margin: 2em auto;
-      padding: 1em;
-      text-align: center;
-    }
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 1em;
+  text-align: center;
+}
 
     #screenshots h2 {
       color: #005fa3;
@@ -229,7 +229,42 @@
         max-width: 300px;
       }
     }
-  </style>
+  .screenshot-carousel {
+  max-width: 320px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.screenshot-carousel img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-indicators {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #005fa3;
+}
+
+</style>
 </head>
 <body>
   <div id="sticky-header">
@@ -271,14 +306,17 @@
   </section>
 
   <section id="screenshots">
-    <h2>See BizCard Keeper in Action</h2>
-    <div class="screenshot-grid">
-      <img src="images/deck-single.png" alt="Deck view - one card">
-      <img src="images/deck-multi.png" alt="Deck view - multiple cards">
-      <img src="images/darkmode.png" alt="Dark mode">
-      <img src="images/list.png" alt="List view">
-      <img src="images/details.png" alt="Card details">
-    </div>
+    <h2>BizCard Keeper in Action</h2>
+    <div class="screenshot-carousel">
+  <img id="carousel-image" src="images/deck-single.png" alt="BizCard screenshot">
+  <div class="carousel-indicators">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</div>
   </section>
 
   <section id="support">
@@ -311,6 +349,38 @@
         nav.classList.remove("show");
       }
     }
-  </script>
+    const carouselImages = [
+    'images/deck-single.png',
+    'images/deck-multi.png',
+    'images/darkmode.png',
+    'images/list.png',
+    'images/details.png'
+  ];
+
+  let currentIndex = 0;
+  const carousel = document.getElementById("carousel-image");
+
+  let interval = setInterval(() => {
+  currentIndex = (currentIndex + 1) % carouselImages.length;
+  carousel.src = carouselImages[currentIndex];
+  updateDots();
+}, 4000);
+
+carousel.addEventListener('mouseenter', () => clearInterval(interval));
+carousel.addEventListener('mouseleave', () => {
+  interval = setInterval(() => {
+    currentIndex = (currentIndex + 1) % carouselImages.length;
+    carousel.src = carouselImages[currentIndex];
+    updateDots();
+  }, 4000);
+}); // change image every 3 seconds
+
+  function updateDots() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === currentIndex);
+    });
+  }
+</script>
 </body>
 </html>
