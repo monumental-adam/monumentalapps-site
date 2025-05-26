@@ -1,11 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Monumental Apps</title>
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Monumental Apps</title>
+<style>
     html {
       scroll-behavior: smooth;
     }
@@ -273,77 +273,73 @@
   background-color: #005fa3;
 }
 
-</style>
+
+
+#app {
+  scroll-margin-top: 150px;
+}</style>
 </head>
-<body>
-  <div id="sticky-header">
-    <header>
-      <h1>Monumental Apps</h1>
-      <div class="hamburger" onclick="toggleMenu(this)">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </header>
-
-    <nav>
-      <div class="nav-links" id="navLinks">
-        <a href="#logo" onclick="collapseMenu()">Home</a>
-        <a href="#about" onclick="collapseMenu()">About</a>
-        <a href="#app" onclick="collapseMenu()">Upcoming Apps</a>
-        <a href="#support" onclick="collapseMenu()">Support</a>
-        <a href="privacy.html" onclick="collapseMenu()">Privacy</a>
-        <a href="terms.html" onclick="collapseMenu()">Terms</a>
-      </div>
-    </nav>
-  </div>
-
-  <section id="logo" class="section">
-    <img src="images/monumental-logo.png" alt="Monumental Apps Logo" />
-    <p class="slogan" style="font-size: clamp(1em, 4vw, 1.5em);">Monumental Apps for Meaningful Work</p>
-  </section>
-
-  <section id="about">
-    <h2>About Us</h2>
-    <p><strong>Monumental Apps, LLC</strong> builds mobile apps that simplify real-world tasks. Founded in 2025, our mission is to make professional-grade tools accessible, efficient, and beautifully designed.</p>
-  </section>
-
-  <section id="app">
-    <h2>Coming Soon: BizCard Keeper</h2>
-    <p><strong>BizCard Keeper</strong> is our upcoming app for business professionals who need to scan, organize, and share business cards on the go. It uses intelligent sorting and comparison tools, allowing you to track your own card, manage contacts, and stay organized effortlessly.</p>
-    <p>Available soon on the App Store!</p>
-  </section>
-
-  <section id="screenshots">
-    <h2>BizCard Keeper in Action</h2>
-    <div class="screenshot-carousel">
-  <img id="carousel-image" src="images/deck-single.png" alt="BizCard screenshot">
-  <div class="carousel-indicators">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
+<body><div id="top"></div>
+<div id="sticky-header">
+<header>
+<h1>Monumental Apps</h1>
+<div class="hamburger" onclick="toggleMenu(this)">
+<span></span>
+<span></span>
+<span></span>
 </div>
-  </section>
-
-  <section id="support">
-    <h2>Support</h2>
-    <p>If you have any questions or need assistance, please contact us at:
+</header>
+<nav>
+<div class="nav-links" id="navLinks">
+<a href="#top" onclick="collapseMenu()">Home</a>
+<a href="#about" onclick="collapseMenu()">About</a>
+<a href="#app" onclick="collapseMenu()">Upcoming Apps</a>
+<a href="#support" onclick="collapseMenu()">Support</a>
+<a href="privacy.html" onclick="collapseMenu()">Privacy</a>
+<a href="terms.html" onclick="collapseMenu()">Terms</a>
+</div>
+</nav>
+</div>
+<section class="section" id="logo">
+<img alt="Monumental Apps Logo" src="images/monumental-logo.png"/>
+<p class="slogan" style="font-size: clamp(1em, 4vw, 1.5em);">Monumental Apps for Meaningful Work</p>
+</section>
+<section id="about">
+<h2>About Us</h2>
+<p><strong>Monumental Apps, LLC</strong> builds mobile apps that simplify real-world tasks. Founded in 2025, our mission is to make professional-grade tools accessible, efficient, and beautifully designed.</p>
+</section>
+<section id="app" style="scroll-margin-top: 150px;">
+<h2>Coming Soon: BizCard Keeper</h2>
+<p><strong>BizCard Keeper</strong> is our upcoming app for business professionals who need to scan, organize, and share business cards on the go. It uses intelligent sorting and comparison tools, allowing you to track your own card, manage contacts, and stay organized effortlessly.</p>
+<p>Available soon on the App Store!</p>
+</section>
+<section id="screenshots">
+<h2>BizCard Keeper in Action</h2>
+<div class="screenshot-carousel">
+<img alt="BizCard screenshot" id="carousel-image" src="images/deck-single.png"/>
+<div class="carousel-indicators">
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+</div>
+</section>
+<section id="support">
+<h2>Support</h2>
+<p>If you have any questions or need assistance, please contact us at:
       <a href="mailto:support@monumentalapps.com">support@monumentalapps.com</a></p>
-  </section>
-
-  <footer>
-    <p>
-      <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
-      <a href="terms.html">Terms of Use</a> &nbsp;|&nbsp;
+</section>
+<footer>
+<p>
+<a href="privacy.html">Privacy Policy</a>  | 
+      <a href="terms.html">Terms of Use</a>  | 
       <a href="mailto:support@monumentalapps.com">Contact Us</a>
-    </p>
-    <p>&copy; 2025 Monumental Apps, LLC. All rights reserved.</p>
-  </footer>
-
-  <script>
+</p>
+<p>© 2025 Monumental Apps, LLC. All rights reserved.</p>
+</footer>
+<script>
     function toggleMenu(el) {
       const nav = document.getElementById("navLinks");
       el.classList.toggle("active");
@@ -360,8 +356,8 @@
     }
     const carouselImages = [
     'images/deck-single.png',
-    'images/deck-multi.png',
     'images/darkmode.png',
+    'images/deck-multi.png',
     'images/list.png',
     'images/details.png'
   ];
